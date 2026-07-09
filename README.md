@@ -1,8 +1,3 @@
-Ah, you are completely right. Because the main code block was wrapped in markdown, formatting inside of it can sometimes conflict with rendering headers correctly if spacing isn't precise.
-
-Here is the complete, corrected raw Markdown for your `README.md` file.
-
-```markdown
 # @methrax/spin-wheel
 
 An enterprise-grade, high-performance, and visually striking customizable canvas-free Fortune Spin Wheel component built natively for modern **Angular (v17+)** applications. 
@@ -32,8 +27,6 @@ npm install @methrax/spin-wheel
 yarn add @methrax/spin-wheel
 # or
 pnpm add @methrax/spin-wheel
-
-```
 
 ---
 
