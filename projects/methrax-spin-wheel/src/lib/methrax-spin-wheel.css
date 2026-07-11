@@ -26,7 +26,7 @@
   --m-wheel-label-font-weight: 700;
   --m-wheel-label-color: inherit;
   --m-wheel-label-letter-spacing: 0.5px;
-  --m-wheel-label-offset: -36;
+  --m-wheel-label-offset: -0.36;
   --m-wheel-label-rotation: 90deg;
 
   /* Center Pin */
