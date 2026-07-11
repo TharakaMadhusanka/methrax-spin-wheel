@@ -1,12 +1,23 @@
 {
-  "name": "m-spin-wheel",
-  "version": "1.0.2",
+  "name": "@methrax/spin-wheel",
+  "description": "A customizable Angular 17+ spin wheel component built with Angular Signals and CSS design tokens.",
+  "license": "MIT",
+  "keywords": [
+  "angular",
+  "angular-library",
+  "spin-wheel",
+  "roulette-wheel",
+  "decision-wheel",
+  "prize-wheel",
+  "angular-signals"
+  ],
+  "version": "1.0.0",
   "author": {
     "name": "Methrax"
   },
   "peerDependencies": {
-    "@angular/common": "^22.0.0",
-    "@angular/core": "^22.0.0"
+    "@angular/common": ">=17.0.0",
+    "@angular/core": ">=17.0.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"

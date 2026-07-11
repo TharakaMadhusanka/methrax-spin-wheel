@@ -1,6 +1,9 @@
 {
   "name": "methrax-spin-wheel-workspace",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "author": {
+    "name": "Tharaka Madhusanka | Methrax"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

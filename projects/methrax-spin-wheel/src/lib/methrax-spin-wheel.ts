@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, computed, input, output, signal, ViewEncapsulation } from '@angular/core';
+import { Component, computed, input, output, signal } from '@angular/core';
 
 export interface WheelSector {
   id: string | number;
@@ -10,7 +10,6 @@ export interface WheelSector {
 
 @Component({
   selector: 'm-spin-wheel',
-  standalone: true,
   imports: [CommonModule],
   template: `
     <div class="m-wheel-wrapper">
@@ -26,60 +25,37 @@ export interface WheelSector {
         [style.transition-duration.ms]="spinDuration()">
         
         @for (sector of sectors(); track sector.id; let i = $index) {
-          <div class="m-sector-label-anchor" [style.transform]="labelTransforms()[i]">
-            <span class="m-sector-label" [style.color]="sector.textColor || '#ffffff'">
+          <div class="m-wheel-sector-label-anchor" [style.transform]="labelTransforms()[i]">
+            <span class="m-wheel-sector-label" [style.color]="sector.textColor || '#ffffff'">
               {{ sector.label }}
             </span>
           </div>
+        }
+
+        @if(showCenterPin()) {
+          <div class="m-wheel-center-pin">{{centerPinLabel()}}</div>
         }
       </div>
 
     </div>
   `,
   styleUrl: "./methrax-spin-wheel.css",
-  encapsulation: ViewEncapsulation.None
 })
 export class MethraxSpinWheel {
-  // --- Configurable Inputs (Signals) ---
+  //#region Configurable Inputs
   sectors = input.required<WheelSector[]>();
+  numberOfSpinnings = input<number>(2); // number of spins to animate spinning
   spinDuration = input<number>(5000); // in milliseconds
+  centerPinLabel = input<string>();
+  showCenterPin = input<boolean>(false);
+  //#endregion
 
-  // --- Outputs ---
+  //#region Outputs
   spinStart = output<void>();
   spinComplete = output<WheelSector>();
+  //#endregion
 
-  // --- Internal State (Signals) ---
-  protected currentRotation = signal<number>(0);
-  protected isSpinning = signal<boolean>(false);
-
-  // --- Modern Computed Properties (No Skew Workarounds) ---
-  protected sliceAngle = computed(() => {
-    const total = this.sectors().length;
-    return total > 0 ? 360 / total : 360;
-  });
-
-  // Generates the native multi-stop gradient segment background array
-  protected conicGradient = computed(() => {
-    const items = this.sectors();
-    const total = items.length;
-    if (total === 0) return 'radial-gradient(circle, #cbd5e1, #94a3b8)';
-    
-    const step = this.sliceAngle();
-    const stops = items.map((item, i) => 
-      `${item.color} ${i * step}deg ${(i + 1) * step}deg`
-    );
-    return `conic-gradient(${stops.join(', ')})`;
-  });
-
-  // Computes the perfectly balanced midpoint rotation angle for each text wrapper
-  protected labelTransforms = computed(() => {
-    const step = this.sliceAngle();
-    return this.sectors().map((_, i) => {
-      const midpointAngle = (i * step) + (step / 2);
-      return `rotate(${midpointAngle}deg)`;
-    });
-  });
-
+  //#region Public Component Accessible Methods 
   public spinToResult(winningId: string | number): void {
     if (this.isSpinning()) return;
 
@@ -98,18 +74,45 @@ export class MethraxSpinWheel {
     const randomIndex = Math.floor(Math.random() * this.sectors().length);
     this.executeSpin(randomIndex);
   }
+  //#endregion
+
+  protected currentRotation = signal<number>(0);
+  protected isSpinning = signal<boolean>(false);
+
+  protected sliceAngle = computed(() => {
+    const total = this.sectors().length;
+    return total > 0 ? 360 / total : 360;
+  });
+
+  protected conicGradient = computed(() => {
+    const items = this.sectors();
+    const total = items.length;
+    if (total === 0) return 'radial-gradient(circle, #cbd5e1, #94a3b8)';
+    
+    const angle = this.sliceAngle();
+    const stops = items.map((item: { color: any; }, i: number) => 
+      `${item.color} ${i * angle}deg ${(i + 1) * angle}deg`
+    );
+    return `conic-gradient(${stops.join(', ')})`;
+  });
+
+  protected labelTransforms = computed(() => {
+    const angle = this.sliceAngle();
+    return this.sectors().map((_, i) => {
+      const midpointAngle = (i * angle) + (angle / 2);
+      return `rotate(${midpointAngle}deg)`;
+    });
+  });
 
   private executeSpin(targetIndex: number): void {
     this.isSpinning.set(true);
     this.spinStart.emit();
 
     const totalSectors = this.sectors().length;
-    const extraSpins = 5 * 360; // 5 full rotations for dramatic effect
+    const extraSpins = this.numberOfSpinnings() * 360;
     
-    // Calculate precise angle to align chosen sector with the top pointer (0 degrees)
     const targetAngle = (totalSectors - targetIndex) * this.sliceAngle() - (this.sliceAngle() / 2);
     
-    // Normalize existing rotation to keep spinning forward continuously
     const currentModulo = this.currentRotation() % 360;
     const nextRotation = this.currentRotation() + extraSpins + targetAngle - currentModulo;
 
