@@ -15,6 +15,8 @@ Create interactive prize wheels, decision wheels, random selectors, game wheels,
 
 [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/stackblitz-starters-alrarbnu?file=src%2Fmain.ts)
 
+![Spin Wheel Demo](./docs/demo_spin_wheel.gif)
+
 ---
 
 ## Features
