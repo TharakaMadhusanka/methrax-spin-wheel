@@ -29,6 +29,18 @@
     },
     {
       "path": "./projects/methrax-spin-wheel/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/ng-17/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/ng-17/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/ng-22/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/ng-22/tsconfig.spec.json"
     }
   ]
 }

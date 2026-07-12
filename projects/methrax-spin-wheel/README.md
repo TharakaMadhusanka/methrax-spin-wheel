@@ -247,61 +247,68 @@ m-spin-wheel {
 
 # Available CSS Design Tokens
 
-## Wheel
+### Wheel
 
-| Token                     | Description    |
-| ------------------------- | -------------- |
-| `--m-wheel-size`          | Wheel diameter |
-| `--m-wheel-border-size`   | Border width   |
-| `--m-wheel-border-color`  | Border color   |
-| `--m-wheel-shadow`        | Wheel shadow   |
-| `--m-wheel-border-radius` | Wheel radius   |
-
----
-
-## Animation
-
-| Token                                  | Description         |
-| -------------------------------------- | ------------------- |
-| `--m-wheel-transition-duration`        | Animation duration  |
-| `--m-wheel-transition-timing-function` | CSS easing function |
+| Token | Default | Description |
+|-------|---------|-------------|
+| `--m-wheel-size` | `350px` | Overall wheel diameter |
+| `--m-wheel-background` | `transparent` | Wheel background |
+| `--m-wheel-border-size` | `6px` | Wheel border width |
+| `--m-wheel-border-color` | `#222222` | Wheel border color |
+| `--m-wheel-border-radius` | `50%` | Wheel border radius |
+| `--m-wheel-box-sizing` | `border-box` | CSS box-sizing used for wheel layout |
+| `--m-wheel-shadow` | `0 8px 24px rgba(0, 0, 0, 0.15)` | Wheel shadow |
 
 ---
 
-## Pointer
+### Animation
 
-| Token                      | Description      |
-| -------------------------- | ---------------- |
-| `--m-wheel-pointer-size`   | Pointer size     |
-| `--m-wheel-pointer-color`  | Pointer color    |
-| `--m-wheel-pointer-angle`  | Pointer rotation |
-| `--m-wheel-pointer-shadow` | Pointer shadow   |
+| Token | Default | Description |
+|-------|---------|-------------|
+| `--m-wheel-transition-duration` | `5000ms` | Spin animation duration |
+| `--m-wheel-transition-timing-function` | `cubic-bezier(0.1, 1, 0.1, 1)` | Spin animation easing function |
 
 ---
 
-## Labels
+### Pointer
 
-| Token                            | Description                |
-| -------------------------------- | -------------------------- |
-| `--m-wheel-label-font-family`    | Label font                 |
-| `--m-wheel-label-font-size`      | Label size                 |
-| `--m-wheel-label-font-weight`    | Label weight               |
-| `--m-wheel-label-letter-spacing` | Letter spacing             |
-| `--m-wheel-label-offset`         | Label distance from center |
-| `--m-wheel-label-rotation`       | Label rotation             |
+| Token | Default | Description |
+|-------|---------|-------------|
+| `--m-wheel-pointer-size` | `16px` | Pointer triangle size |
+| `--m-wheel-pointer-color` | `#ef4444` | Pointer color |
+| `--m-wheel-pointer-angle` | `0deg` | Pointer rotation angle |
+| `--m-wheel-pointer-shadow` | `drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15))` | Pointer shadow |
 
 ---
 
-## Center Pin
+### Labels
 
-| Token                               | Description    |
-| ----------------------------------- | -------------- |
-| `--m-wheel-center-pin-size`         | Pin diameter   |
-| `--m-wheel-center-pin-background`   | Pin background |
-| `--m-wheel-center-pin-color`        | Text color     |
-| `--m-wheel-center-pin-border-width` | Border size    |
-| `--m-wheel-center-pin-border-color` | Border color   |
-| `--m-wheel-center-pin-shadow`       | Shadow         |
+| Token | Default | Description |
+|-------|---------|-------------|
+| `--m-wheel-label-font-family` | `system-ui, -apple-system, sans-serif` | Label font family |
+| `--m-wheel-label-font-size` | `1rem` | Label font size |
+| `--m-wheel-label-font-weight` | `700` | Label font weight |
+| `--m-wheel-label-color` | `inherit` | Default label text color |
+| `--m-wheel-label-letter-spacing` | `0.5px` | Label letter spacing |
+| `--m-wheel-label-offset` | `-0.36` | Label radial offset from the wheel center (multiplier of wheel size) |
+| `--m-wheel-label-rotation` | `90deg` | Label text rotation |
+
+---
+
+### Center Pin
+
+| Token | Default | Description |
+|-------|---------|-------------|
+| `--m-wheel-center-pin-size` | `65px` | Center pin diameter |
+| `--m-wheel-center-pin-background` | `#ffffff` | Center pin background |
+| `--m-wheel-center-pin-color` | `#0f172a` | Center pin text color |
+| `--m-wheel-center-pin-border-width` | `4px` | Center pin border width |
+| `--m-wheel-center-pin-border-color` | `#0f172a` | Center pin border color |
+| `--m-wheel-center-pin-border-radius` | `50%` | Center pin border radius |
+| `--m-wheel-center-pin-font-size` | `11px` | Center pin font size |
+| `--m-wheel-center-pin-font-weight` | `900` | Center pin font weight |
+| `--m-wheel-center-pin-shadow` | `none` | Center pin shadow |
+| `--m-wheel-center-pin-z-index` | `5` | Center pin stacking order |
 
 ---
 
