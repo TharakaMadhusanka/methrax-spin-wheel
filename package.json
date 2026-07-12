@@ -7,7 +7,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build:spin-wheel": "ng build methrax-spin-wheel",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
