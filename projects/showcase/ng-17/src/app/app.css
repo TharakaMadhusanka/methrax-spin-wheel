@@ -1,0 +1,12 @@
+:host .override-styles {
+  --m-wheel-size: 200px;
+  --m-wheel-background: transparent;
+  --m-wheel-border-size: 3px;
+  --m-wheel-border-color: #fff;
+
+
+  --m-wheel-pointer-size: 10px;
+  --m-wheel-pointer-color: purple;
+
+  --m-wheel-label-font-size: 0.75rem;
+}

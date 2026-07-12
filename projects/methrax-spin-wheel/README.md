@@ -11,6 +11,12 @@ A highly customizable, lightweight, and framework-native **Angular 17+ Spin Whee
 
 Create interactive prize wheels, decision wheels, random selectors, game wheels, and custom spinning experiences with complete styling control.
 
+### Interactive Demo
+
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/stackblitz-starters-alrarbnu?file=src%2Fmain.ts)
+
+![Spin Wheel Demo](./docs/demo_spin_wheel.gif)
+
 ---
 
 ## Features

@@ -1,2 +1,68 @@
-<display class="flex flex-row gap-2"></display>
+<div class="min-h-screen bg-slate-50 p-8">
+
+  <div class="mx-auto max-w-5xl">
+
+    <header class="mb-8 text-center">
+      <h1 class="text-3xl font-bold text-slate-800">
+        Methrax Spin Wheel
+      </h1>
+      <p class="mt-2 text-slate-500">
+        Angular customizable spin wheel component demo
+      </p>
+    </header>
+
+
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+
+      <!-- Default Configuration -->
+      <section class="flex flex-col items-center gap-6 rounded-lg border border-slate-200 bg-white p-6">
+
+        <h2 class="text-lg font-semibold text-slate-700">
+          Default Configuration
+        </h2>
+
+        <m-spin-wheel
+          #spinwheel
+          [sectors]="sectors">
+        </m-spin-wheel>
+
+      </section>
+
+
+      <!-- Custom Configuration -->
+      <section class="flex flex-col items-center gap-6 rounded-lg border border-slate-200 bg-white p-6">
+
+        <h2 class="text-lg font-semibold text-slate-700">
+          Custom Styling
+        </h2>
+
+        <m-spin-wheel
+          #spinwheel
+          [sectors]="sectors"
+          [numberOfSpinnings]="5"
+          class="override-styles"
+          [showCenterPin]="true">
+        </m-spin-wheel>
+
+      </section>
+
+    </div>
+
+
+    <div class="mt-8 flex justify-center">
+
+      <button
+        type="button"
+        class="rounded-md bg-slate-800 px-6 py-3 text-sm font-medium text-white transition hover:bg-slate-700"
+        (click)="spinRandom()">
+        Spin Random
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
 <router-outlet></router-outlet>

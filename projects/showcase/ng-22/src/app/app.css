@@ -1,0 +1,13 @@
+:host .override-styles {
+  --m-wheel-size: 300px;
+
+  --m-wheel-border-color: #64748b;
+  --m-wheel-border-size: 4px;
+  --m-wheel-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+  --m-wheel-pointer-color: #2563eb;
+
+  --m-wheel-center-pin-background: #f8fafc;
+  --m-wheel-center-pin-color: #334155;
+  --m-wheel-center-pin-border-color: #64748b;
+}
