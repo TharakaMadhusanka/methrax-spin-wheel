@@ -9,6 +9,7 @@
   --m-wheel-border-color: #222222;
   --m-wheel-border-radius: 50%;
   --m-wheel-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  --m-wheel-box-sizing: border-box;
 
   /* Animation */
   --m-wheel-transition-duration: 5000ms;
@@ -93,6 +94,7 @@
     var(--m-wheel-border-color);
 
   box-shadow: var(--m-wheel-shadow);
+  box-sizing: var(--m-wheel-box-sizing);
 
   transition-property: transform;
   transition-duration: var(--m-wheel-transition-duration);
